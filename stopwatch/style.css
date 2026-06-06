@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            #e2e2e2 39px,
+            #e2e2e2 40px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 39px,
+            #e2e2e2 39px,
+            #e2e2e2 40px
+        );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Rajdhani', sans-serif;
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+/* ── Display ── */
+#display {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(4rem, 14vw, 8rem);
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: #111;
+    line-height: 1;
+    text-align: center;
+    background: white;
+    padding: 1.2rem 3rem;
+    border-left: 8px solid #e8003d;
+    box-shadow: 6px 6px 0px #111;
+    text-transform: uppercase;
+    position: relative;
+    animation: fadeInDown 0.4s ease both;
+}
+
+#display::after {
+    content: "STOPWATCH";
+    position: absolute;
+    top: -1.4rem;
+    left: -8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: white;
+    background: #e8003d;
+    padding: 0.2rem 0.6rem;
+}
+
+/* ── Buttons ── */
+.stopwatch {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeInUp 0.4s ease 0.1s both;
+}
+
+button {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0.75rem 1.6rem;
+    border: 3px solid #111;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    left: 0;
+    transition: top 0.1s, left 0.1s, box-shadow 0.1s;
+    user-select: none;
+}
+
+/* Start */
+#start {
+    background: #e8003d;
+    color: white;
+    box-shadow: 4px 4px 0 #111;
+}
+#start:hover {
+    background: #c0002e;
+}
+#start:active {
+    top: 4px;
+    left: 4px;
+    box-shadow: none;
+}
+
+/* Stop */
+#stop {
+    background: #111;
+    color: white;
+    box-shadow: 4px 4px 0 #555;
+}
+#stop:hover {
+    background: #333;
+}
+#stop:active {
+    top: 4px;
+    left: 4px;
+    box-shadow: none;
+}
+
+/* Lap */
+#lap {
+    background: white;
+    color: #111;
+    box-shadow: 4px 4px 0 #111;
+}
+#lap:hover {
+    background: #f5f5f5;
+}
+#lap:active {
+    top: 4px;
+    left: 4px;
+    box-shadow: none;
+}
+
+/* Reset */
+#reset {
+    background: #f0f0f0;
+    color: #555;
+    border-color: #bbb;
+    box-shadow: 4px 4px 0 #bbb;
+}
+#reset:hover {
+    background: #e0e0e0;
+    color: #111;
+    border-color: #999;
+}
+#reset:active {
+    top: 4px;
+    left: 4px;
+    box-shadow: none;
+}
+
+/* ── Laps Container ── */
+.container {
+    width: 100%;
+    max-width: 480px;
+    animation: fadeInUp 0.4s ease 0.2s both;
+}
+
+.laps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    max-height: 280px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #e8003d #f0f0f0;
+}
+
+.laps::-webkit-scrollbar {
+    width: 4px;
+}
+.laps::-webkit-scrollbar-thumb {
+    background: #e8003d;
+    border-radius: 2px;
+}
+
+.laps li {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: white;
+    border-left: 5px solid #e8003d;
+    padding: 0.6rem 1rem;
+    box-shadow: 3px 3px 0 #ccc;
+    color: #111;
+    display: flex;
+    justify-content: space-between;
+    animation: slideIn 0.2s ease both;
+}
+
+.laps li::before {
+    content: "▶";
+    font-size: 0.6rem;
+    color: #e8003d;
+    align-self: center;
+    margin-right: 0.5rem;
+}
+
+/* ── Animations ── */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-12px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+    button {
+        padding: 0.65rem 1.1rem;
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+    }
+
+    #display {
+        padding: 1rem 1.5rem;
+    }
+}
