@@ -1,0 +1,225 @@
+/* ── Reset ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Page background ── */
+body {
+  background-color: #f5f4f0;
+  font-family: 'Geist', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 440px;
+}
+
+/* ── Page title ── */
+h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a18;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ── White card ── */
+.card {
+  background-color: #fdfcfa;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+/* ── Section labels (From / To) ── */
+.field-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #b8b6b0;
+  margin-bottom: 8px;
+}
+
+/* ── Row that holds the flag+select and the input ── */
+.field-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ── Flag + dropdown box ── */
+.selector-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f0efe9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 9px 11px;
+  min-width: 118px;
+  cursor: pointer;
+}
+
+.selector-box:hover {
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+/* ── Flag image ── */
+.selector-box img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ── Currency dropdown ── */
+.selector-box select {
+  background: none;
+  border: none;
+  outline: none;
+  font-family: 'Geist Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a18;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* ── Amount input field ── */
+#amount-input {
+  flex: 1;
+  background-color: #f0efe9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1a1a18;
+  outline: none;
+  min-width: 0;
+}
+
+#amount-input:focus {
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+#amount-input::placeholder {
+  color: #b8b6b0;
+}
+
+/* ── Result display box (read-only, mirrors amount input style) ── */
+.result-box {
+  flex: 1;
+  background-color: #f0efe9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1a1a18;
+  min-width: 0;
+}
+
+/* ── Divider with swap button in the middle ── */
+.divider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Swap button ── */
+.swap-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #f0efe9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 15px;
+  color: #8a8880;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.swap-btn:hover {
+  border-color: rgba(0, 0, 0, 0.22);
+  color: #1a1a18;
+  transform: rotate(180deg);
+}
+
+/* ── Convert button ── */
+.convert-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 13px;
+  background-color: #1a1a18;
+  color: #f5f4f0;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.convert-btn:hover {
+  opacity: 0.82;
+}
+
+.convert-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Error message ── */
+.error-msg {
+  font-size: 12px;
+  color: #c0392b;
+  margin-top: 8px;
+  min-height: 16px;
+}
+
+/* ── Result strip at the bottom ── */
+.result-strip {
+  margin-top: 14px;
+  background-color: rgba(42, 110, 78, 0.07);
+  border: 1px solid rgba(42, 110, 78, 0.13);
+  border-radius: 10px;
+  padding: 14px 16px;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* ── Big converted amount ── */
+.result-main {
+  font-family: 'Geist Mono', monospace;
+  font-size: 22px;
+  font-weight: 400;
+  color: #2a6e4e;
+}
+
+/* ── Small rate info below ── */
+.result-sub {
+  font-size: 12px;
+  color: #8a8880;
+}

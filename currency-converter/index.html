@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <div class="container">
+
+      <h1>Currency Converter</h1>
+
+      <div class="card">
+
+        <!-- FROM section -->
+        <p class="field-label">From</p>
+        <div class="field-row">
+          <div class="selector-box">
+            <img id="from-flag" src="https://flagcdn.com/w80/us.png" alt="flag" />
+            <select id="from-select"></select>
+          </div>
+          <input type="number" id="amount-input" value="1" min="0" placeholder="0" />
+        </div>
+
+        <!-- Swap button -->
+        <div class="divider-row">
+          <div class="divider-line"></div>
+          <button class="swap-btn" id="swap-btn">⇅</button>
+          <div class="divider-line"></div>
+        </div>
+
+        <!-- TO section -->
+        <p class="field-label">To</p>
+        <div class="field-row">
+          <div class="selector-box">
+            <img id="to-flag" src="https://flagcdn.com/w80/in.png" alt="flag" />
+            <select id="to-select"></select>
+          </div>
+          <div class="result-box" id="to-display">—</div>
+        </div>
+
+        <!-- Convert button -->
+        <button class="convert-btn" id="convert-btn">Convert</button>
+
+        <!-- Error message -->
+        <p class="error-msg" id="error-msg"></p>
+
+        <!-- Result strip -->
+        <div class="result-strip" id="result-strip">
+          <p class="result-main" id="result-main">—</p>
+          <p class="result-sub" id="result-sub">Enter an amount above</p>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="codes.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
